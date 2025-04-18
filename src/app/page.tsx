@@ -4,8 +4,8 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
 
-import { Mail } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { Checkbox } from "@/components/ui/checkbox"
 import {
   Form,
   FormControl,
@@ -15,9 +15,9 @@ import {
   FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
-import { Checkbox } from "@/components/ui/checkbox"
 import { Label } from "@/components/ui/label"
 import { Separator } from "@/components/ui/separator"
+import { Mail } from "lucide-react"
 
 const formSchema = z.object({
   email: z.string().min(2, { message: "Email must be at least 2 characters.", }).max(50),
@@ -25,6 +25,7 @@ const formSchema = z.object({
 })
 
 export default function Home() {
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -58,7 +59,7 @@ export default function Home() {
                 <div className="grid grid-cols-3 items-center p-4">
                   <Separator className="" />
                   <div className="flex flex-col items-center">
-                    <p className="text-center text-sm">or Signup with Email</p>
+                    <p className="text-center text-sm">or Login with Email</p>
                   </div>
                   <Separator />
                 </div>

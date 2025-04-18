@@ -4,6 +4,11 @@
  */
 
 import type {Config} from 'jest';
+import nextJest from 'next/jest.js'
+
+const createJestConfig = nextJest({
+  dir: './'
+})
 
 const config: Config = {
   // All imported modules in your tests should be mocked automatically
@@ -78,16 +83,16 @@ const config: Config = {
   // ],
 
   // An array of file extensions your modules use
-  // moduleFileExtensions: [
-  //   "js",
+  moduleFileExtensions: [
+    "js",
   //   "mjs",
   //   "cjs",
-  //   "jsx",
-  //   "ts",
-  //   "tsx",
-  //   "json",
-  //   "node"
-  // ],
+    "jsx",
+    "ts",
+    "tsx",
+    "json",
+    "node"
+  ],
 
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
   // moduleNameMapper: {},
@@ -196,4 +201,4 @@ const config: Config = {
   // watchman: true,
 };
 
-export default config;
+export default createJestConfig(config);
